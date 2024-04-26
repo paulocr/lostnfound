@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	export let data;
 	let { items } = data;
+	
 	const formatDate = (date: Date) => {
 		return new Date(date).toLocaleString('es');
 	};
@@ -28,7 +29,7 @@
 				<img src={item.image != null ? item.image : 'https://doodleipsum.com/700/avatar-2?i=0b97563c41e025e6c761db36833159f3'} alt={item.description} width={200} />
 
 				<div class="grid grid-cols-4 gap-4 py-4">
-					{#each item.tags as tag}
+					{#each item.tags.split(",") as tag}
 						<span class="chip variant-filled-secondary">{tag}</span>
 					{/each}
 				</div>
