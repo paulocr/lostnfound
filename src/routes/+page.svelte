@@ -20,13 +20,15 @@
 </div>
 
 {#if items}
-<div class="flex sm:flex-col lg:flex-row mx-auto justify-center container">
+<div class="flex flex-col lg:flex-row mx-auto justify-center container">
+	<!-- <div class="flex flex-col"> -->
 		{#each items as item}
-			<div class="flex-shrink-0 justify-center card m-4 sm:mx-auto lg:mx-4 p-4 w-96 ">
+			<div class="flex-shrink-0 justify-center card m-4 sm:mx-auto md:mx-auto lg:mx-4 p-4 w-96 ">
 				<p>Descripción: {item.description}</p>
 				<p>Encontrado en: {item.location}</p>
 				<p>Encontrado el: {formatDate(item.found)}</p>
-				<img src={`https://ik.imagekit.io/pjfsbg6rk/${item.images[0].url}?q=50`} alt={item.images[0].altText} />
+				
+				<img src={`https://ik.imagekit.io/pjfsbg6rk/tr:h-300,q-80/${item.images[0].url}?q=50`} alt={item.images[0].altText} />
 
 				<div class="card p-2 my-2">
 					<div class="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-2 grid-cols-2 gap-4">
