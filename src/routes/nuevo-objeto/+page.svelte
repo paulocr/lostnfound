@@ -11,19 +11,17 @@
 </div>
 
 {#if $message}
-<div class="flex mx-auto container m-2 variant-filled-success text-2xl ">
-	<aside class="alert variant-filled-success">
-        <div class="alert-message" data-toc-ignore>
-            <p>{$message}</p>
-        </div>
-    </aside>
-
-</div>
+	<div class="flex mx-auto container m-2 variant-filled-success text-2xl">
+		<aside class="alert variant-filled-success">
+			<div class="alert-message" data-toc-ignore>
+				<p>{$message}</p>
+			</div>
+		</aside>
+	</div>
 {/if}
 
 <div class="flex container mx-auto text-2xl justify-center m-2 p-4">
-	<form method="POST" use:enhance>
-
+	<form method="POST" enctype="multipart/form-data" use:enhance>
 		<label class="label m-2">
 			<span class="p-2">Descripción</span>
 			<input
@@ -41,8 +39,8 @@
 			<span class="p-2">Lugar donde fue encontrado</span>
 			<input
 				class="input p-2"
-				type="email"
-				name="email"
+				type="text"
+				name="location"
 				aria-invalid={$errors.location ? 'true' : undefined}
 				bind:value={$form.location}
 				{...$constraints.location}
@@ -50,6 +48,53 @@
 		</label>
 
 		{#if $errors.location}<span class="invalid">{$errors.location}</span>{/if}
+
+		<label class="label m-2">
+			<span class="p-2">Encontrado</span>
+			<input
+				class="input p-2"
+				type="datetime-local"
+				name="found"
+				aria-invalid={$errors.found ? 'true' : undefined}
+				bind:value={$form.found}
+				{...$constraints.found}
+			/>
+		</label>
+
+		{#if $errors.found}<span class="invalid">{$errors.found}</span>{/if}
+
+		<label class="label m-2">
+			<span class="p-2">Fotos</span>
+
+
+			<input
+				class="input p-2"
+				type="file"
+                multiple
+				name="images"
+				aria-invalid={$errors.images ? 'true' : undefined}
+				bind:value={$form.images}
+				{...$constraints.images}
+			/>
+		</label>
+
+		{#if $errors.tags}<span class="invalid">{$errors.tags}</span>{/if}
+
+        
+
+		<label class="label m-2">
+			<span class="p-2">Categoría</span>
+			<input
+				class="input p-2"
+				type="text"
+				name="tags"
+				aria-invalid={$errors.tags ? 'true' : undefined}
+				bind:value={$form.tags}
+				{...$constraints.tags}
+			/>
+		</label>
+
+		{#if $errors.tags}<span class="invalid">{$errors.tags}</span>{/if}
 
 		<button class="btn variant-filled-primary text-2xl m-2">Guardar</button>
 	</form>

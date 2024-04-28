@@ -26,6 +26,8 @@
 				<p>Encontrado en: {item.location}</p>
 				<p>Encontrado el: {formatDate(item.found)}</p>
 
+
+				{#if item.images.length > 0}
 				<img
 					src={`https://ik.imagekit.io/pjfsbg6rk/tr:h-300,q-80/${item.images[0].url}?q=50`}
 					alt={item.images[0].altText}
@@ -42,6 +44,7 @@
 					>
 					<p>{item.images.length}</p>
 				</div>
+				{/if}
 
 				<div class="card p-2 my-2">
 					<div class="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-2 grid-cols-2 gap-4">
