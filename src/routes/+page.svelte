@@ -26,9 +26,7 @@
 				<p>Descripción: {item.description}</p>
 				<p>Encontrado en: {item.location}</p>
 				<p>Encontrado el: {formatDate(item.found)}</p>
-				<img src={`https://lnfimg.s3.us-east-2.amazonaws.com/${item.images[0].url}`} alt={item.images[0].altText} />
-
-				
+				<img src={`https://ik.imagekit.io/pjfsbg6rk/${item.images[0].url}?q=50`} alt={item.images[0].altText} />
 
 				<div class="card p-2 my-2">
 					<div class="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-2 grid-cols-2 gap-4">
