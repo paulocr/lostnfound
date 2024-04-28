@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	export let data;
 	let { items } = data;
@@ -10,10 +11,6 @@
 	const newItem = () => {
 		goto('/nuevo-objeto');
 	};
-
-	const images: Record<string, { default: string }> = import.meta.glob('$lib/images/**/**', {
-		eager: true
-	});
 </script>
 
 <div class="flex mx-auto justify-center">
@@ -23,29 +20,18 @@
 </div>
 
 {#if items}
-	<div class="flex mx-auto justify-center container">
+<div class="flex sm:flex-col lg:flex-row mx-auto justify-center container">
 		{#each items as item}
-			<div class="card m-4 p-4 w-96">
+			<div class="flex-shrink-0 justify-center card m-4 sm:mx-auto lg:mx-4 p-4 w-96 ">
 				<p>Descripción: {item.description}</p>
 				<p>Encontrado en: {item.location}</p>
 				<p>Encontrado el: {formatDate(item.found)}</p>
+				<img src={`https://lnfimg.s3.us-east-2.amazonaws.com/${item.images[0].url}`} alt={item.images[0].altText} />
 
-				<img
-					class="my-2"
-					src={images[`/src/lib/images/${item.id}/${item.images[0].url}`].default}
-					alt={item.description}
-					width={150}
-					height={150}
-				/>
-
-				<!-- {#await import(images[`/src/lib/images/${item.id}/${item.images[0].url}`].default)}
-					Cargando....
-				{:then { default: src }}
-					<img class="my-2" {src} alt={item.description} width={150} height={150} />
-				{/await} -->
+				
 
 				<div class="card p-2 my-2">
-					<div class="grid grid-cols-4 gap-4">
+					<div class="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-2 grid-cols-2 gap-4">
 						{#each item.tags.split(',') as tag}
 							<span class="chip variant-filled-secondary">{tag}</span>
 						{/each}
