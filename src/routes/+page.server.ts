@@ -1,4 +1,3 @@
-import { getObjects } from '$lib/server/s3';
 import prisma from '$lib/prisma';
 
 export const load = async () => {
