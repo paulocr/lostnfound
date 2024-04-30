@@ -12,7 +12,7 @@
 	};
 </script>
 
-<div class="flex mx-auto justify-center">
+<div class="flex mx-auto justify-center container">
 	<button type="button" class="btn variant-filled-secondary text-2xl p-4 m-4" on:click={newItem}
 		>Nuevo reporte</button
 	>

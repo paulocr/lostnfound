@@ -1,6 +1,20 @@
 <script lang="ts">
-    export let data;
-
+	export let data;
 </script>
 
-<pre>{JSON.stringify(data, null, 2)}</pre>
+<div class="container mx-auto">
+	{#if data.item}
+		<h1 class="h1 text-center">{data.item.description}</h1>
+
+		<div class="flex flex-col lg:flex-row gap-2 mx-auto justify-center p-4">
+			{#each data.item.images as image}
+					<img
+						src={`https://ik.imagekit.io/pjfsbg6rk/tr:h-500/${image.url}`}
+						alt={image.altText}
+					/>
+			{/each}
+		</div>
+
+
+	{/if}
+</div>
