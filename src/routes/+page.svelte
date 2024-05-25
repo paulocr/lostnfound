@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { imagekit } from '$lib/imagekit';
 	export let data;
-	let { items } = data;
+	let { items, locals } = data;
 
 	const formatDate = (date: Date) => {
 		return new Date(date).toLocaleString('es');
@@ -23,7 +24,8 @@
 </div>
 
 {#if items}
-	<div class="flex flex-col lg:flex-row mx-auto justify-center container">
+	<!-- <div class="flex flex-col lg:flex-row mx-auto justify-center container"> -->
+		<div class="grid grid-cols-4 gap-4">
 		{#each items as item}
 			<div
 				class="block card card-hover flex-shrink-0 justify-center m-4 sm:mx-auto md:mx-auto lg:mx-4 p-4 w-96"
@@ -33,10 +35,8 @@
 				<p>Encontrado el: {formatDate(item.found)}</p>
 
 				{#if item.images.length > 0}
-					<img
-						src={`https://ik.imagekit.io/pjfsbg6rk/tr:h-300,q-80/${item.images[0].url}?q=50`}
-						alt={item.images[0].altText}
-					/>
+					<img src={item.images[0].url} alt={item.images[0].altText} />
+
 					<div class="flex flex-row items-center gap-2 text-xs">
 						<span
 							><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"

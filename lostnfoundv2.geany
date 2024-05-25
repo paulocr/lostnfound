@@ -27,8 +27,9 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
+current_page=1
 FILE_NAME_0=229;None;0;EUTF-8;1;1;0;%2FUsers%2Fpaulo%2Fdevelopment%2Flostnfoundv2%2Fsrc%2Froutes%2F%2Blayout.svelte;0;4
+FILE_NAME_1=0;TypeScript;0;EUTF-8;1;1;0;%2FUsers%2Fpaulo%2Fdevelopment%2Fvendure%2Fsk5_vendure_frontend%2Fsrc%2Fclient.ts;0;4
 
 [VTE]
 last_dir=/Users/paulo

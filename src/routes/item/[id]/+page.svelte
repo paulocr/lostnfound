@@ -8,13 +8,8 @@
 
 		<div class="flex flex-col lg:flex-row gap-2 mx-auto justify-center p-4">
 			{#each data.item.images as image}
-					<img
-						src={`https://ik.imagekit.io/pjfsbg6rk/tr:h-500/${image.url}`}
-						alt={image.altText}
-					/>
+				<img src={image.url} alt={image.altText} width={400} />
 			{/each}
 		</div>
-
-
 	{/if}
 </div>
