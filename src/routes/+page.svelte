@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { imagekit } from '$lib/imagekit';
 	export let data;
 	let { items, locals } = data;
 
@@ -24,18 +23,24 @@
 </div>
 
 {#if items}
-	<!-- <div class="flex flex-col lg:flex-row mx-auto justify-center container"> -->
-		<div class="grid grid-cols-4 gap-4">
+	<div class="flex flex-wrap mx-auto justify-center container">
+		<!-- <div class="grid grid-cols-3 gap-2"> -->
 		{#each items as item}
-			<div
-				class="block card card-hover flex-shrink-0 justify-center m-4 sm:mx-auto md:mx-auto lg:mx-4 p-4 w-96"
-			>
+			<div class="block card p-4 card-hover justify-center m-4 sm:mx-auto md:mx-auto lg:mx-4">
 				<p>Descripción: {item.description}</p>
 				<p>Encontrado en: {item.location}</p>
-				<p>Encontrado el: {formatDate(item.found)}</p>
+				<p>Encontrado el: {formatDate(item.found_at)}</p>
 
 				{#if item.images.length > 0}
-					<img src={item.images[0].url} alt={item.images[0].altText} />
+					<div class="h-48 py-4">
+						<img
+							src={item.images[0].url}
+							alt={item.images[0].altText}
+							width={100}
+							height={100}
+							class="object-contain"
+						/>
+					</div>
 
 					<div class="flex flex-row items-center gap-2 text-xs">
 						<span

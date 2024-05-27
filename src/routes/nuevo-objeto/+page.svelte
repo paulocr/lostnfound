@@ -54,14 +54,14 @@
 			<input
 				class="input p-2"
 				type="datetime-local"
-				name="found"
-				aria-invalid={$errors.found ? 'true' : undefined}
-				bind:value={$form.found}
-				{...$constraints.found}
+				name="found_at"
+				aria-invalid={$errors.found_at ? 'true' : undefined}
+				bind:value={$form.found_at}
+				{...$constraints.found_at}
 			/>
 		</label>
 
-		{#if $errors.found}<span class="invalid">{$errors.found}</span>{/if}
+		{#if $errors.found_at}<span class="invalid">{$errors.found_at}</span>{/if}
 
 		<label class="label m-2">
 			<span class="p-2">Fotos</span>

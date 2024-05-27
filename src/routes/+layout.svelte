@@ -22,7 +22,7 @@
 
 <div class="flex justify-center p-4">
 	<a href="/">
-		<!-- <img src={donbosco} width={200} alt="Don Bosco" /> -->
+		<img src={donbosco} width={200} alt="Don Bosco" />
 	</a>
 </div>
 <slot />

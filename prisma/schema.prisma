@@ -12,7 +12,8 @@ model item {
   description String
   location    String?
   tags        String
-  found       DateTime  @db.Timestamp(6)
+  claimed     Boolean // 
+  found_at    DateTime  @db.Timestamp(6)
   created_at  DateTime? @default(now()) @db.Timestamptz(6)
   images      image[]
 }
@@ -21,21 +22,20 @@ model image {
   id      Int    @id @default(autoincrement())
   url     String
   altText String
-  // Define the relationship with the Item table
-  item    item? @relation(fields: [itemId], references: [id]) // Each Image belongs to one Item
+  item    item?  @relation(fields: [itemId], references: [id]) // Each Image belongs to one Item
   itemId  Int?
 }
 
 model user {
-  id       String     @id
+  id       String    @id
   username String
   password String
-  session session[]
+  session  session[]
 }
 
 model session {
   id        String   @id
   userId    String
   expiresAt DateTime
-  user      user    @relation(references: [id], fields: [userId], onDelete: Cascade)
+  user      user     @relation(references: [id], fields: [userId], onDelete: Cascade)
 }

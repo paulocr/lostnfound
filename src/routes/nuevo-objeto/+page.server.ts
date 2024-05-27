@@ -3,7 +3,8 @@ import { fail, redirect } from '@sveltejs/kit';
 import { schema } from '$lib/schemas/newItemSchema';
 import { message, superValidate } from 'sveltekit-superforms';
 import prisma from '$lib/prisma';
-import { imagekit } from '$lib/imagekit.js';
+import { imagekit } from '$lib/imagekit';
+
 
 export const load = async ({ locals }) => {
 	if (locals.session === null) {
@@ -27,7 +28,7 @@ export const actions = {
 			data: {
 				description: form.data.description,
 				location: form.data.location,
-				found: form.data.found,
+				found_at: form.data.found_at,
 				tags: form.data.tags
 			}
 		});

@@ -1,0 +1,32 @@
+Table "image" {
+ 	"id" integer  [primary key] 
+ 	"url" text   
+ 	"altText" text   
+ 	"itemId" integer   
+ } 
+ 
+ Table "item" {
+ 	"id" integer  [primary key] 
+ 	"description" text   
+ 	"location" text   
+ 	"tags" text   
+ 	"found_at" timestamp   
+ 	"created_at" timestamp  [default: 'CURRENT_TIMESTAMP'] 
+ } 
+ 
+ Table "session" {
+ 	"id" text  [primary key] 
+ 	"userId" text   
+ 	"expiresAt" timestamp   
+ } 
+ 
+ Table "user" {
+ 	"id" text   
+ 	"password" text   
+ 	"username" text   
+ } 
+ 
+ 
+Ref: "image".itemId > "item".id
+Ref: "session".userId > "user".id 
+ 

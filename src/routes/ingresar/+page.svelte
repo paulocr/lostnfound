@@ -8,9 +8,8 @@
 	});
 </script>
 
-<div class="flex flex-col items-center container mx-auto">
-    <h1 class="h1 font-bold text-primary-400">Ingresar</h1>
-    <h3 class="h3 text-tertiary-100">Solo usuarios registrados pueden generar nuevos reportes</h3>
+<div class="grid container mx-auto justify-center">
+    <h3 class="h3 text-error-200 font-bold">Solo usuarios registrados pueden generar nuevos reportes</h3>
 </div>
 
 {#if $message}
