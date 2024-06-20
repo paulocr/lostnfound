@@ -11,7 +11,7 @@
 </script>
 
 {#if $modalStore[0]}
-	<div class="card p-10 w-modal shadow-xl space-y-4 variant-filled-secondary text-white">
+	<div class="card p-10 w-modal shadow-xl space-y-4 variant-filled-secondary text-black">
 		<div class="flex flex-col items-center space-y-4">
 			<h2 class="h2 text-4xl">Tipo de reporte</h2>
 			<!-- <p>Elija el tipo de reporte</p> -->
