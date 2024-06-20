@@ -37,16 +37,16 @@ const main = async () => {
 		});
 	}
 
-  try {
-	await prisma.image.create({
-		data: {
-			url: 'https://fakeimg.pl/400x400?text=[imagen]',
-			altText: 'Placeholder'
-		}
-	});
-  } catch(e) {
-    console.log(e)
-  }
+	try {
+		await prisma.image.create({
+			data: {
+				url: 'https://fakeimg.pl/400x400?text=[imagen]',
+				altText: 'Placeholder'
+			}
+		});
+	} catch (e) {
+		console.log(e);
+	}
 
 	const categoriesFromDB = await prisma.category.findMany({
 		select: {
@@ -55,6 +55,9 @@ const main = async () => {
 	});
 
 	for (let i = 1; i <= 100; i++) {
+
+    console.log(`creating item # ${i}`);
+
 		try {
 			await prisma.item.create({
 				data: {
@@ -69,9 +72,9 @@ const main = async () => {
 					},
 					images: {
 						create: {
-              url: "https://fakeimg.pl/400x400?text=[imagen]",
-              altText: "Placeholder"
-            }
+							url: 'https://fakeimg.pl/400x400?text=[imagen]',
+							altText: 'Placeholder'
+						}
 					},
 					left_at: 'oficina',
 					location: 'gimnasio',
