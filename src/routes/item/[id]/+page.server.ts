@@ -5,7 +5,7 @@ export const load = async ({ params }) => {
 	const id = Number(params.id);
 	const item = await prisma.item.findUnique({
 		where: { id: id },
-		include: { images: true }
+		include: { images: true, reporter: true }
 	});
 
 	// item?.images.map((image) => {

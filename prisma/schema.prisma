@@ -7,15 +7,48 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum itemType {
+  reported
+  looking
+}
+
+enum status {
+  new
+  in_progress
+  returned
+}
+
+model category {
+  id   Int    @id @default(autoincrement())
+  name String
+  item item[]
+}
+
 model item {
-  id          Int       @id @default(autoincrement())
-  description String
-  location    String?
-  tags        String
-  claimed     Boolean // 
-  found_at    DateTime  @db.Timestamp(6)
-  created_at  DateTime? @default(now()) @db.Timestamptz(6)
-  images      image[]
+  id             Int       @id @default(autoincrement())
+  description    String
+  location       String?
+  category       category  @relation(fields: [categoryId], references: [id])
+  foundOrLost_at DateTime  @db.Timestamp(6)
+  created_at     DateTime? @default(now()) @db.Timestamptz(6)
+  left_at        String?
+  reporter       person    @relation("reporter", fields: [reporterId], references: [id])
+  claimedBy      person?   @relation("claimedBy", fields: [claimedById], references: [id])
+  status         status
+  itemType       itemType
+  images         image[]
+  claimedById    Int?
+  reporterId     Int
+  categoryId     Int
+}
+
+model person {
+  id           Int     @id @default(autoincrement())
+  name         String
+  class        String
+  phone        String?
+  reportedItem item[]  @relation("reporter")
+  claimedItem  item[]  @relation("claimedBy")
 }
 
 model image {

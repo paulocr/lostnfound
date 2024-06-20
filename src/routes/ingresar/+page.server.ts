@@ -6,13 +6,16 @@ import prisma from '$lib/prisma';
 import { Argon2id } from 'oslo/password';
 import { lucia } from '$lib/server/auth';
 
-export const load = async () => {
+export const load = async ({url, params}) => {
 	const form = await superValidate(zod(loginSchema));
 	return { form };
 };
 
 export const actions: Actions = {
-	default: async ({ request, locals, cookies }) => {
+	default: async ({ url, request, locals, cookies }) => {
+
+		const newItemRedirect = url.searchParams.get('newItemRedirect')
+
 		const form = await superValidate(request, zod(loginSchema));
 		if (!form.valid) {
 			return fail(400, { form });
@@ -44,6 +47,7 @@ export const actions: Actions = {
 				...sessionCookie.attributes
 			});
 
+			if (newItemRedirect) redirect(302, '/nuevo-objeto');
 			redirect(302, '/');
 		}
 
