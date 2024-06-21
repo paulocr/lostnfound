@@ -34,31 +34,28 @@
 	}
 </script>
 
-<div class="flex flex-col mx-auto w-max justify-center">
+<div class="flex">
 	<h1 class="h1 text-center">Categorías con mayores reportes</h1>
-
-	<div class="p-10">
-		<table class="table table-comfortable">
-			<thead>
-				<th>Categoría</th>
-				<th>Conteo</th>
-			</thead>
-			<tbody>
-				{#each Object.entries(categoryCounts) as category}
-					<tr>
-						<td>{category[0]}</td>
-						<td>{category[1]}</td>
-					</tr>
-				{/each}
-			</tbody>
-		</table>
-	</div>
 </div>
-<style>
-	table td, th{
-		font-size: 40px;
-	}
 
+<div class="flex py-10">
+	<table class="table table-comfortable">
+		<thead>
+			<th>Categoría</th>
+			<th>Conteo</th>
+		</thead>
+		<tbody>
+			{#each Object.entries(categoryCounts) as category}
+				<tr>
+					<td>{category[0]}</td>
+					<td>{category[1]}</td>
+				</tr>
+			{/each}
+		</tbody>
+	</table>
+</div>
+
+<style>
 	.table-comfortable tbody td {
 		padding: 15px;
 	}
