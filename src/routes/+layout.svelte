@@ -28,7 +28,7 @@
 
 <div class="flex w-screen bg-secondary-100 text-secondary-500 lg:sticky lg:top-0 py-4">
 	<div
-		class="w-full border border-red-400 lg:flex grid grid-cols-2 place-items-center flex-col lg:flex-row justify-between gap-2 px-4 lg:text-4xl text-2xl h-full"
+		class="w-full lg:flex grid grid-cols-2 place-items-center flex-col lg:flex-row justify-between gap-2 px-4 lg:text-4xl text-2xl h-full"
 	>
 		<div>
 			<a href="/">

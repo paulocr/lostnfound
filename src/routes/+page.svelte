@@ -34,11 +34,11 @@
 	}
 </script>
 
-<div class="flex">
+<div class="flex justify-center">
 	<h1 class="h1 text-center">Categorías con mayores reportes</h1>
 </div>
 
-<div class="flex py-10">
+<div class="flex w-1/2 mx-auto px-2 my-4">
 	<table class="table table-comfortable">
 		<thead>
 			<th>Categoría</th>
